@@ -1,0 +1,16 @@
+version: '3.7'
+volumes:
+  postgres:
+services:
+  postgres:
+    container_name: sessionz_postgres
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_DB: sessionz
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: dvega
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - '5432'
+    restart: unless-stopped
